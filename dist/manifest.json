@@ -1,0 +1,48 @@
+{
+    "name": "ChromeX",
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "description": "This extension helps you record and share help videos with ease.",
+    "icons": {
+        "16": "assets/icon16.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "ChromeX",
+        "default_icon": "assets/icon16.png"
+    },
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "tabCapture",
+        "storage"
+    ],
+    "background": {
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/**",
+                "https://*/**"
+            ],
+            "js": [
+                "scripts/contents.js"
+            ],
+            "css": [
+                "styles/popup.css"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/*"
+            ],
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ]
+        }
+    ]
+}
